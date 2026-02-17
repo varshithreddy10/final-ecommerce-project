@@ -1,0 +1,130 @@
+spring:
+  application:
+    name: apigateway
+
+  cloud:
+    gateway:
+      server:
+        webflux:
+          routes:
+
+            - id: auth-service
+              uri: lb://AUTHUSER
+              predicates:
+                - Path=/api/auth/**
+
+            - id: order-service
+              uri: lb://ORDERAPI
+              predicates:
+                - Path=/api/orders/**
+              filters:
+                - name: AuthenticationFilter
+
+            - id: customer-service
+              uri: lb://CUSTOMERAPI
+              predicates:
+                - Path=/api/customer/**
+              filters:
+                - name: AuthenticationFilter
+
+            - id: address-service
+              uri: lb://CUSTOMERAPI
+              predicates:
+                - Path=/api/address/**
+              filters:
+                - name: AuthenticationFilter
+
+            - id: cart-service
+              uri: lb://CARTAPI
+              predicates:
+                - Path=/api/carts/**
+              filters:
+                - name: AuthenticationFilter
+
+            - id: product-service
+              uri: lb://API
+              predicates:
+                - Path=/api/products/**
+              filters:
+                - name: AuthenticationFilter
+
+            - id: admin-service
+              uri: lb://ADMINAPI
+              predicates:
+                - Path=/api/admin/**
+              filters:
+                - name: AuthenticationFilter
+
+
+            # ================= SWAGGER DOC ROUTES =================
+
+            - id: auth-docs
+              uri: lb://AUTHUSER
+              predicates:
+                - Path=/auth/v3/api-docs
+              filters:
+                - RewritePath=/auth/(?<segment>.*), /${segment}
+
+            - id: order-docs
+              uri: lb://ORDERAPI
+              predicates:
+                - Path=/orders/v3/api-docs
+              filters:
+                - RewritePath=/orders/(?<segment>.*), /${segment}
+
+            - id: customer-docs
+              uri: lb://CUSTOMERAPI
+              predicates:
+                - Path=/customer/v3/api-docs
+              filters:
+                - RewritePath=/customer/(?<segment>.*), /${segment}
+
+            - id: cart-docs
+              uri: lb://CARTAPI
+              predicates:
+                - Path=/carts/v3/api-docs
+              filters:
+                - RewritePath=/carts/(?<segment>.*), /${segment}
+
+            - id: product-docs
+              uri: lb://API
+              predicates:
+                - Path=/products/v3/api-docs
+              filters:
+                - RewritePath=/products/(?<segment>.*), /${segment}
+
+            - id: admin-docs
+              uri: lb://ADMINAPI
+              predicates:
+                - Path=/admin/v3/api-docs
+              filters:
+                - RewritePath=/admin/(?<segment>.*), /${segment}
+
+
+server:
+  port: 8080
+  forward-headers-strategy: framework
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eurekaserver:8761/eureka
+
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    urls:
+      - name: Auth Service
+        url: /auth/v3/api-docs
+      - name: Order Service
+        url: /orders/v3/api-docs
+      - name: Customer Service
+        url: /customer/v3/api-docs
+      - name: Cart Service
+        url: /carts/v3/api-docs
+      - name: Product Service
+        url: /products/v3/api-docs
+      - name: Admin Service
+        url: /admin/v3/api-docs
