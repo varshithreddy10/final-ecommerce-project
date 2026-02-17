@@ -13,7 +13,7 @@ pipeline {
     environment {
         DOCKERHUB_USERNAME = "varshithreddy144"
         DEPLOY_DIR = "/opt/ecommerce-project"
-        COMPOSE_URL = "https://raw.githubusercontent.com/varshithreddy10/ecommerce-microservice/main/docker-compose.yml"
+        COMPOSE_URL = "https://raw.githubusercontent.com/varshithreddy10/final-ecommerce-project/main/docker-compose.yml"
     }
 
     stages {
@@ -76,7 +76,7 @@ pipeline {
                         [name: "productapi",    image: "ecom-productapi"]
                     ]
 
-                    def isFirstBuild = (currentBuild.number == 93)
+                    def isFirstBuild = (currentBuild.number == 1)
                     def changedServices = []
 
                     /* ===== FIRST BUILD CLEANUP ===== */
