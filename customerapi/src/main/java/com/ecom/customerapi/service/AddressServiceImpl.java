@@ -6,6 +6,7 @@ import com.ecom.customerapi.entity.CustomerEntity;
 import com.ecom.customerapi.exception.ResourceNotFoundException;
 import com.ecom.customerapi.repository.AddressRepository;
 import com.ecom.customerapi.repository.CustomerRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
+@Slf4j
 public class AddressServiceImpl implements AddressService
 {
     @Autowired
@@ -27,13 +29,17 @@ public class AddressServiceImpl implements AddressService
     @Override
     public AddressDto addNewAddress(AddressDto addressdto, Long customerId)
     {
+        log.info("control entered service with id , address as "+customerId+" "+addressdto+" sending the addressid to the customerentity to conform the identity");
         CustomerEntity customerentity = customerrepo.findById(customerId)
                 .orElseThrow(()-> new ResourceNotFoundException("customer","customerId",""+customerId));
 
         AddressEntity addressentity = modelmapper.map(addressdto , AddressEntity.class);
         addressentity.setCustomer(customerentity);
 
+        log.info("setting the customer to the address "+addressentity);
+
         AddressEntity savedaddress = addressrepo.save(addressentity);
+        log.info("saved address = "+savedaddress);
         return modelmapper.map(savedaddress , AddressDto.class);
     }
 
