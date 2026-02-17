@@ -22,7 +22,7 @@ public class AddressController
     @PostMapping("/add/address/{customerId}")
     public ResponseEntity<AddressDto> addNewCustomerAddress(@PathVariable Long customerId,@RequestBody AddressDto addressdto)
     {
-        log.info("control entered for adding new address with customerId = "+customerId+" address as = "+addressdto);
+        log.info("control entered for adding new address with customerId is = "+customerId+" address as = "+addressdto);
         AddressDto addresssaved = addressservice.addNewAddress(addressdto , customerId);
         log.info("saved address = "+addresssaved);
         return new ResponseEntity<>(addresssaved , HttpStatus.CREATED);
