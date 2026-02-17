@@ -174,10 +174,10 @@ pipeline {
             sh 'docker logout || true'
         }
         success {
-            echo "✅ CI/CD Completed Successfully"
+            echo "✅ CI/CD Completed Successfully you made it"
         }
         failure {
-            echo "❌ Pipeline Failed"
+            echo "❌ Pipeline Failed stupid "
         }
     }
 }
