@@ -55,7 +55,7 @@ public class AuthController
     @GetMapping("/test")
     public ResponseEntity<String> test()
     {
-        String message = " i want to join the gym ";
+        String message = " varshith first earn money ";
 
         return new ResponseEntity<>(message , HttpStatus.OK);
     }
