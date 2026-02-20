@@ -1,0 +1,36 @@
+[33me392789[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m adding kafkaconfig
+[33m7126778[m asf
+[33m868bc21[m adding kafka, redis
+[33md047cd3[m asdfadsf
+[33m0bcc5c6[m asafd
+[33m2c87b2a[m asdfasef
+[33m5cece4a[m performance tuning in application.properties, docker-compose.yml adding replicas
+[33mceb9502[m performance tuning in application.properties, docker-compose.yml adding replicas
+[33m64fa177[m asdfasf
+[33mc9c1712[m added environment variables in the docker-compose.yml
+[33m1a6fae8[m added environment variables in the docker-compose.yml
+[33md0d887c[m added environment variables in the docker-compose.yml
+[33mf8e0476[m added environment variables in the docker-compose.yml
+[33m49dfa56[m added environment variables in the docker-compose.yml
+[33m946af3a[m added environment variables in the docker-compose.yml
+[33ma94feb3[m updating jenkins build to 1
+[33mcc0bba6[m changed all application.properties
+[33m2f6c7cf[m testing
+[33mb789bb1[m changed all application.properties and added port mapping for swagger documentation with apigateway
+[33m025e5c4[m changed roles
+[33m0f661cd[m asgaf
+[33mcb4b28a[m afasfas
+[33m4daaa1e[m asdgasf
+[33md83b483[m asfhasifh
+[33m5c2fd09[m asdfadsfasdf
+[33m2fd617f[m asdf
+[33m32c93fb[m asdfasdf
+[33m5c36fce[m asdfasdg
+[33m3b090fa[m asfd
+[33m416ca45[m asdf
+[33mc7505bd[m changed address controller addred logs
+[33m1dd7698[m changed the auth-service
+[33m354d67e[m modified auth-service controller
+[33m5566a07[m changed jenkins file
+[33mef0c06b[m first ci/cd pipeline commit for the final-ecommerce-project
+[33m0713c29[m Initial commit

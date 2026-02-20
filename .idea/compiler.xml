@@ -8,7 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="eurekaserver" />
       </profile>
-      <profile name="Annotation profile for api" enabled="true">
+      <profile name="Annotation profile for customerapi" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
@@ -20,8 +20,8 @@
         <module name="adminapi" />
         <module name="api" />
         <module name="customerapi" />
-        <module name="orderapi" />
         <module name="authuser" />
+        <module name="orderapi" />
       </profile>
     </annotationProcessing>
   </component>
