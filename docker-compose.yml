@@ -1,7 +1,7 @@
 services:
 
-  # ---------------- EUREKA SERVER ----------------
-  eurekaserver:
+  # ---------------- EUREKA SERVER ----------------  ghp_B817ZwOy1UdyL
+  eurekaserver:   3RuAICt64Qj46X7nZ3Sl6Ua
     image: varshithreddy144/ecom-eurekaserver:latest
     container_name: eurekaserver
     ports:
